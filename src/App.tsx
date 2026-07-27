@@ -1,34 +1,35 @@
 import { useRef } from "react"
+import { Routes, Route } from "react-router-dom"
 import CatToggle from './components/CatToggle'
 import { Header } from './Header'
-import { Cards } from './components/Cards'
-import { InfoCard } from './components/InfoCard'
-import { Projects } from './components/Projects'
+import { Home } from './pages/Home'
+import { ProjectsPage } from './components/Projects'
 import MatrixCodeRain from "./components/MatrixCodeRain"
 
 function App() {
-
   const meowRef = useRef<HTMLAudioElement>(null)
 
   const handleMeow = () => {
-    if (meowRef.current) {
-      meowRef.current.currentTime = 0 //stops spamming
-      meowRef.current.play()
-    }
+    if (!meowRef.current) return
+
+    meowRef.current.currentTime = 0
+    meowRef.current.play()
   }
+
   return (
-    <>
-      <audio ref={meowRef} src="./sounds/cat-meow.mp3"></audio>
+    <div className="p-3">
+      <audio ref={meowRef} src="/sounds/cat-meow.mp3"></audio>
       <MatrixCodeRain />
       <Header />
       <div className="grid place-items-center pt-30 p-2">
-        <Cards />
-        <InfoCard />
-        <Projects />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+        </Routes>
       </div>
-      <div className="mt-5 flex min-w-102.5 items-center justify-center bg-gray-900 p-3 backdrop-blur-[10px]">
-        <div className="grid w-full max-w-175 grid-cols-3 items-center justify-evenly gap-10">
-          <div className="text-sm">
+      <div className="mt-5 flex w-full items-center justify-center rounded-3xl border border-[#27272a] bg-[#131316] p-3 px-5 py-3 backdrop-blur-[10px] sm:rounded-full">
+        <div className="grid w-full grid-cols-1 items-center justify-items-center gap-4 sm:grid-cols-3 sm:justify-between">
+          <div className="text-sm text-center sm:text-left">
             Nathaniel Mankanda © 2026. All rights reserved.
           </div>
 
@@ -41,15 +42,13 @@ function App() {
             />
           </div>
 
-          <div className="ml-auto">
+          <div className="sm:ml-auto">
             <CatToggle />
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
-
 }
-
 
 export default App

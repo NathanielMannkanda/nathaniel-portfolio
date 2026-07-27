@@ -52,7 +52,6 @@ export const InfoCard = () => {
           </div>
         ))}
       </div>
-
     </div>
   )
 }

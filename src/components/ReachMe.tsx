@@ -32,13 +32,10 @@ export const ReachMe = () => {
         '3OwFHv6oeBkDD7e31'
       )
 
-      
-      
       setStatus({
         type: 'success',
-        text: 'Message sent successfully!'
+        text: 'Message sent successfully!',
       })
-
 
       setEmail('')
       setMessage('')
@@ -46,15 +43,15 @@ export const ReachMe = () => {
       console.error(error)
 
       setStatus({
-      type: 'error',
-      text: 'Failed to send message. Please try again.'
-    })
+        type: 'error',
+        text: 'Failed to send message. Please try again.',
+      })
     }
 
     setTimeout(() => {
-      setStatus({text: " "})
-    }, 3000);
-    
+      setStatus({ text: ' ' })
+    }, 3000)
+
     setLoading(false)
   }
 
@@ -90,7 +87,6 @@ export const ReachMe = () => {
           className='mt-3 cursor-pointer rounded-md border px-4 py-2 transition will-change-transform hover:bg-white hover:text-black active:scale-95 active:bg-[#433c4d]'
         >
           {loading ? 'Sending...' : 'Send Message'}
-
         </button>
 
         {status && (

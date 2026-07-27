@@ -6,7 +6,28 @@
       "Bash(npm run *)",
       "Bash(chromium-cli --help)",
       "Bash(npx --yes playwright --version)",
-      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")"
+      "Bash(node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Read(//tmp/**)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173)",
+      "Bash(node -e ' *)",
+      "Bash(grep -v \"^\\\\s*$\")",
+      "Bash(taskkill //PID 5528 //F)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5183/)",
+      "Bash(node \"C:\\\\Users\\\\Osama\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Osama-Documents-2026-code-nathaniel-portfolio\\\\4d0c4d2c-4ea4-4052-9bfb-70fca7da919a\\\\scratchpad\\\\shot.mjs\")",
+      "Bash(npm ls *)",
+      "Bash(npm root *)",
+      "Bash(cp \"C:\\\\Users\\\\Osama\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Osama-Documents-2026-code-nathaniel-portfolio\\\\4d0c4d2c-4ea4-4052-9bfb-70fca7da919a\\\\scratchpad\\\\shot.mjs\" ./__shot.mjs)",
+      "Bash(node ./__shot.mjs)",
+      "Bash(rm ./__shot.mjs)",
+      "Bash(npx vite *)",
+      "Bash(timeout 20 bash -c 'until curl -sf http://localhost:5173 >/dev/null; do sleep 1; done')",
+      "Bash(npx playwright *)",
+      "Bash(node \"C:\\\\Users\\\\Osama\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-Osama-Documents-2026-code-nathaniel-portfolio\\\\2af157f7-90c4-4b54-8c08-520fb798490c\\\\scratchpad\\\\shot.mjs\")",
+      "Bash(npm init *)",
+      "Bash(node shot.mjs)",
+      "Bash(node shot2.mjs)",
+      "Bash(sleep 2; cat /tmp/vite-dev2.log)",
+      "Bash(sed -i \"s/localhost:5175/localhost:5174/\" shot.mjs shot2.mjs)"
     ]
   }
 }

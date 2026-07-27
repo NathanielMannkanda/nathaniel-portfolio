@@ -8,3 +8,12 @@
   font-family: 'HankenGrotesk';
   src: url('fonts/HankenGrotesk-Variable.woff2') format('woff2');
 }
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

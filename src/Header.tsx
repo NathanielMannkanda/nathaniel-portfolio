@@ -1,47 +1,45 @@
 import { useRef } from "react"
 
+const navBarClasses =
+  "fixed top-3 left-3 right-3 z-1000 grid h-18 grid-cols-3 items-center justify-items-center gap-4 rounded-full border border-[#27272a] bg-[#131316] px-5 py-2 backdrop-blur-[10px]"
+
+const resumeButtonClasses =
+  "relative flex h-10 w-fit min-w-30 cursor-pointer items-center rounded-4xl border border-[#37a63f] bg-[#48E054] p-2.5 text-[15px] text-black will-change-transform [transition:transform_0.15s_ease,box-shadow_0.2s_ease,background-color_0.15s_ease] hover:bg-[#3ebd48] hover:shadow-[0_10px_25px_rgba(0,0,0,0.35)] active:scale-[0.94]"
+
+const smileClasses =
+  "pointer-events-none absolute inset-0 flex items-center justify-center text-lg opacity-0"
+
+const openResume = () => {
+  window.open("/CV/Nathaniel-Mankanda-Cv.pdf", "_blank", "noopener,noreferrer")
+  console.log("THX :) ... CV opened")
+}
+
 export const Header = () => {
   const iconRef = useRef<HTMLImageElement>(null)
   const textRef = useRef<HTMLSpanElement>(null)
   const smileRef = useRef<HTMLSpanElement>(null)
 
   return (
-    <div className="fixed z-1000 grid h-22.5 w-full grid-cols-3 items-center justify-items-center gap-4 bg-black/[0.082] p-5 backdrop-blur-[10px]">
-
+    <div className={navBarClasses}>
       <div className="min-w-12.5">
-        <img className="h-12.5 w-12.5 flex-1 rounded-[5px] border-2 border-[#6f6f6f]" src="/imgs/coffee-cat.png" alt="" />
+        <img className="h-12.5 w-12.5 flex-1 rounded-[5px]" src="/imgs/coffee-cat.png" alt="" />
       </div>
 
       <div>
-        <img
-          className="h-10 invert"
-          src="./banners/DevbyNathaniel.png"
-          alt="Website Banner"
-        />
+        <img className="invert" src="/banners/DevbyNathaniel.png" alt="Website Banner" />
       </div>
 
       <div>
-        <button
-          className="relative flex h-10 min-w-30 w-fit cursor-pointer items-center rounded-[5px] border bg-[#232323] p-2.5 text-[15px] [transition:transform_0.15s_ease,box-shadow_0.2s_ease,background-color_0.15s_ease] will-change-transform hover:bg-[#161616] hover:shadow-[0_10px_25px_rgba(0,0,0,0.35)] active:scale-[0.94]"
-          onClick={() => {
-            window.open("./CV/Nathaniel-Mankanda-Cv.pdf", "_blank", "noopener,noreferrer")
-            console.log("THX :) ... CV opened")
-          }}
-        >
-          <img
-            ref={iconRef}
-            className="h-5.5 invert"
-            src="/imgs/cv-icon.png"
-            alt=""
-          />
+        <button className={resumeButtonClasses} onClick={openResume}>
+          <img ref={iconRef} className="h-5.5 mr-2" src="/imgs/cv-icon.png" alt="" />
 
           <span ref={textRef}>Open resume</span>
 
-          {/* smile element */}
-          <span ref={smileRef} className="pointer-events-none absolute inset-0 flex items-center justify-center text-lg opacity-0">(●'◡'●)</span>
+          <span ref={smileRef} className={smileClasses}>
+            (●'◡'●)
+          </span>
         </button>
       </div>
-
     </div>
   )
 }

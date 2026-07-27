@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-hanken: 'HankenGrotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+}
+
+@font-face {
+  font-family: 'HankenGrotesk';
+  src: url('fonts/HankenGrotesk-Variable.woff2') format('woff2');
+}

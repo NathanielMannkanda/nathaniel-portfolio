@@ -2,9 +2,9 @@ import { useRef } from "react"
 import CatToggle from './components/CatToggle'
 import { Header } from './Header'
 import { Cards } from './components/Cards'
-import { ReachMe } from './components/ReachMe'
 import { InfoCard } from './components/InfoCard'
 import { Projects } from './components/Projects'
+import MatrixCodeRain from "./components/MatrixCodeRain"
 
 function App() {
 
@@ -19,12 +19,12 @@ function App() {
   return (
     <>
       <audio ref={meowRef} src="./sounds/cat-meow.mp3"></audio>
+      <MatrixCodeRain />
       <Header />
       <div className="grid place-items-center pt-30 p-2">
         <Cards />
         <InfoCard />
         <Projects />
-        <ReachMe />
       </div>
       <div className="mt-5 flex min-w-102.5 items-center justify-center bg-gray-900 p-3 backdrop-blur-[10px]">
         <div className="grid w-full max-w-175 grid-cols-3 items-center justify-evenly gap-10">

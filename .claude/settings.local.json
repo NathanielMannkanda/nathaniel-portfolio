@@ -27,7 +27,18 @@
       "Bash(node shot.mjs)",
       "Bash(node shot2.mjs)",
       "Bash(sleep 2; cat /tmp/vite-dev2.log)",
-      "Bash(sed -i \"s/localhost:5175/localhost:5174/\" shot.mjs shot2.mjs)"
+      "Bash(sed -i \"s/localhost:5175/localhost:5174/\" shot.mjs shot2.mjs)",
+      "Bash(where chromium-cli *)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(npx --no-install puppeteer --version)",
+      "Bash(node -e \"console.log\\(process.platform\\)\")",
+      "Bash(npx --no-install playwright install chromium)",
+      "Bash(npx --no-install playwright install chromium --with-deps)",
+      "Bash(node \"C:/Users/Osama/AppData/Local/Temp/claude/c--Users-Osama-Documents-2026-code-nathaniel-portfolio/51d454ae-7749-4711-8fb8-36e1a237dfd8/scratchpad/inspect.js\")",
+      "Bash(node inspect.js)",
+      "Bash(node inspect2.js)",
+      "Bash(node inspect3.js)",
+      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")"
     ]
   }
 }

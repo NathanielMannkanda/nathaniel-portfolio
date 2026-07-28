@@ -157,6 +157,32 @@ const ProjectsCarousel = () => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const [opacities, setOpacities] = useState<number[]>(() => projects.map(() => 1))
+  // Space added before the first card and after the last card so they can be
+  // scrolled all the way to the center of the scroller, same as every other
+  // card. Without this, the scroller runs out of room to scroll and the
+  // first/last cards get stuck off-center.
+  const [sidePadding, setSidePadding] = useState(16)
+
+  // Measured separately from the opacity effect below: this needs to commit
+  // and repaint with the new padding before opacities are recalculated
+  // against it, otherwise the first render's opacities are computed against
+  // the old (too-small) padding.
+  useEffect(() => {
+    const scroller = scrollerRef.current
+    const firstCard = cardRefs.current[0]
+    if (!scroller || !firstCard) return
+
+    const updatePadding = () => {
+      const scrollerWidth = scroller.getBoundingClientRect().width
+      const cardWidth = firstCard.getBoundingClientRect().width
+      if (scrollerWidth === 0 || cardWidth === 0) return
+      setSidePadding(Math.max(16, (scrollerWidth - cardWidth) / 2))
+    }
+
+    updatePadding()
+    window.addEventListener('resize', updatePadding)
+    return () => window.removeEventListener('resize', updatePadding)
+  }, [])
 
   useEffect(() => {
     const scroller = scrollerRef.current
@@ -194,7 +220,7 @@ const ProjectsCarousel = () => {
       scroller.removeEventListener('scroll', updateOpacities)
       window.removeEventListener('resize', updateOpacities)
     }
-  }, [])
+  }, [sidePadding])
 
   const scrollByCard = (direction: 1 | -1) => {
     const scroller = scrollerRef.current
@@ -218,7 +244,8 @@ const ProjectsCarousel = () => {
 
       <div
         ref={scrollerRef}
-        className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth px-4 py-2"
+        style={{ paddingLeft: sidePadding, paddingRight: sidePadding }}
+        className="scrollbar-hide flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth py-2"
       >
         {projects.map((project, i) => (
           <div

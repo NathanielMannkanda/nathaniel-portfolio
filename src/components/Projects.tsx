@@ -275,7 +275,7 @@ const ProjectsCarousel = () => {
 
 // Small card shown on the home page that links out to the dedicated /projects page.
 export const ProjectsPreview = () => (
-  <div className="mt-5 mb-2.5 flex h-full w-full min-w-100 max-w-175 flex-1 flex-col items-center rounded-md p-5 text-center">
+  <div className="mt-5 mb-2.5 flex h-full w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center rounded-md p-5 text-center">
     <h1 className="text-xl font-bold text-[#48E054] md:text-3xl">
       Projects
     </h1>
@@ -296,7 +296,7 @@ export const ProjectsPreview = () => (
 // Full projects page. Mobile keeps the original vertical, scroll-down list
 // with no fading. md+ switches to a faded, side-scrolling carousel.
 export const ProjectsPage = () => (
-  <div className="mt-5 mb-2.5 flex h-full w-full min-w-100 max-w-175 flex-1 flex-col items-center justify-center p-2.5 md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
+  <div className="mt-5 mb-2.5 flex h-full w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center justify-center p-2.5 md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
     <Link to="/" className="mb-4 self-start text-sm text-gray-400 transition hover:text-[#48E054]">
       ← Back home
     </Link>

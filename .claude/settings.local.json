@@ -38,7 +38,18 @@
       "Bash(node inspect.js)",
       "Bash(node inspect2.js)",
       "Bash(node inspect3.js)",
-      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")"
+      "Bash(tasklist //FI \"IMAGENAME eq node.exe\")",
+      "Bash(npx eslint *)",
+      "Bash(chromium-cli --session portfolio)",
+      "Bash(node \"C:/Users/Osama/AppData/Local/Temp/claude/c--Users-Osama-Documents-2026-code-nathaniel-portfolio/5165ab31-56f2-412e-ab5d-1c76d1f9cbc8/scratchpad/verify.js\")",
+      "Read(//c//**)",
+      "Bash(ls \"C:/Users/Osama/AppData/Roaming/npm/node_modules\" 2>&1 | grep -i play; ls \"$HOME/AppData/Local/npm-cache/_npx\" 2>/dev/null | head)",
+      "Read(//c/Users/Osama/AppData/Roaming/npm/node_modules/**)",
+      "Read(//c/Users/Osama/AppData/Local/npm-cache/_npx/**)",
+      "Bash(node -e \"const {chromium}=require\\('playwright'\\); \\(async\\(\\)=>{const b=await chromium.launch\\(\\); console.log\\('launched'\\); await b.close\\(\\);}\\)\\(\\).catch\\(e=>{console.error\\('ERR',e.message\\); process.exit\\(1\\)}\\)\")",
+      "Bash(node verify.js)",
+      "Bash(python3 -c ' *)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $files = @\\('public\\\\banners\\\\DevbyNathaniel.png','public\\\\imgs\\\\coffee-cat.png','public\\\\imgs\\\\cv-icon.png'\\); foreach \\($f in $files\\) { $img = [System.Drawing.Image]::FromFile\\(\\(Resolve-Path $f\\)\\); Write-Output \"$f -> $\\($img.Width\\)x$\\($img.Height\\)\"; $img.Dispose\\(\\) })"
     ]
   }
 }

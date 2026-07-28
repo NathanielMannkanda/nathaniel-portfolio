@@ -56,7 +56,7 @@ export const ReachMe = () => {
   }
 
   return (
-    <div className='flex flex-col flex-1 border-3 rounded-md w-full h-auto p-2.5 min-w-100 max-w-175 mt-5'>
+    <div className='flex flex-col flex-1 border-3 rounded-md w-full h-auto p-2.5 sm:min-w-100 max-w-175 mt-5'>
       <h1 className='text-md border-b pb-2'>
         You've made it this far, let's talk.
       </h1>

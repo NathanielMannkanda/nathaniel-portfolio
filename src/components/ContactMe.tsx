@@ -44,7 +44,7 @@ const SocialLink = ({ social }: { social: Social }) => (
 
 export const ContactMe = () => {
   return (
-    <div className="mb-3 flex w-full min-w-100 max-w-175 flex-1 flex-col items-center justify-center border-b border-gray-700 p-2.5 pb-4">
+    <div className="mb-3 flex w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center justify-center border-b border-gray-700 p-2.5 pb-4">
       <img
         className="h-20"
         src="/gifs/cat-working.gif"

@@ -275,7 +275,7 @@ const ProjectsCarousel = () => {
 
 // Small card shown on the home page that links out to the dedicated /projects page.
 export const ProjectsPreview = () => (
-  <div className="mt-5 mb-2.5 flex h-full w-full min-w-100 max-w-175 flex-1 flex-col items-center rounded-md border-3 p-5 text-center">
+  <div className="mt-5 mb-2.5 flex h-full w-full min-w-100 max-w-175 flex-1 flex-col items-center rounded-md p-5 text-center">
     <h1 className="text-xl font-bold text-[#48E054] md:text-3xl">
       Projects
     </h1>

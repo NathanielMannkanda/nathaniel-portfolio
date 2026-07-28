@@ -1,4 +1,15 @@
 import type { ReactNode } from 'react'
+import javascriptIcon from '../assets/icons/javascript-icon.png'
+import typescriptIcon from '../assets/icons/typescript-icon.png'
+import tailwindIcon from '../assets/icons/tailwind-icon.png'
+import reactIcon from '../assets/icons/react-icon.png'
+import gitIcon from '../assets/icons/git-icon.png'
+import githubIcon from '../assets/icons/github-icon.png'
+import mysqlIcon from '../assets/icons/mysql-logo.png'
+import firebaseIcon from '../assets/icons/firebase-icon.png'
+import mongodbIcon from '../assets/icons/mongodb-icon.png'
+import htmlIcon from '../assets/icons/html-icon.png'
+import cssIcon from '../assets/icons/css-icon.png'
 
 type Skill = {
   label: ReactNode
@@ -7,45 +18,44 @@ type Skill = {
   badgeClassName: string
 }
 
+const badgeClassName = 'border-[#37a63f] bg-[#48E054] text-black'
+
 const skills: Skill[] = [
-  { label: 'HTML', icon: '/imgs/html-icon.png', badgeClassName: 'bg-amber-800 border-orange-600 text-white' },
-  { label: 'CSS', icon: '/imgs/css-icon.png', badgeClassName: 'bg-blue-800 border-blue-600 text-white' },
-  { label: 'JavaScript', icon: '/imgs/javascript-icon.png', badgeClassName: 'bg-yellow-500 border-yellow-800 text-black' },
-  { label: 'Tailwind', icon: '/imgs/tailwind-css-icon.png', badgeClassName: 'bg-blue-200 border-blue-900 text-blue-500' },
-  { label: 'TypeScript', icon: '/imgs/typescript-icon.png', badgeClassName: 'bg-blue-700 border-blue-600 text-white' },
-  { label: 'React', icon: '/imgs/react-js-icon.png', badgeClassName: 'bg-blue-400 border-blue-600 text-blue-100' },
-  { label: 'Git', icon: '/imgs/git-icon.png', badgeClassName: 'bg-orange-200 border-orange-600 text-orange-600' },
-  { label: 'GitHub', icon: '/imgs/github-logo.svg', badgeClassName: 'bg-gray-200 border-gray-400 text-black' },
+  { label: 'HTML', icon: htmlIcon, badgeClassName },
+  { label: 'CSS', icon: cssIcon, badgeClassName },
+  { label: 'JavaScript', icon: javascriptIcon, badgeClassName },
+  { label: 'Tailwind', icon: tailwindIcon, badgeClassName },
+  { label: 'TypeScript', icon: typescriptIcon, badgeClassName },
+  { label: 'React', icon: reactIcon, badgeClassName },
+  { label: 'Git', icon: gitIcon, badgeClassName },
+  { label: 'GitHub', icon: githubIcon, badgeClassName },
   {
-    label: (
-      <>
-        <span className="text-blue-600">My</span>
-        <span className="text-orange-400">SQL</span>
-      </>
-    ),
-    icon: '/imgs/MySQL-Logo.png',
+    label: 'MySQL',
+    icon: mysqlIcon,
     iconClassName: 'mr-1 h-10 w-10',
-    badgeClassName: 'bg-white border-gray-400 text-black',
+    badgeClassName,
   },
-  { label: 'MongoDB', icon: '/imgs/mongodb.-logo.png', badgeClassName: 'bg-green-300 border-green-900 text-gray-900' },
-  { label: 'Firebase', icon: '/imgs/firebase-icon.png', badgeClassName: 'bg-orange-300 border-orange-900 text-orange-900' },
+  { label: 'MongoDB', icon: mongodbIcon, badgeClassName },
+  { label: 'Firebase', icon: firebaseIcon, badgeClassName },
 ]
 
 export const InfoCard = () => {
   return (
-    <div className="mt-5 mb-2.5 flex h-full w-full min-w-25 max-w-175 flex-1 flex-col rounded-md border-3 p-2.5">
-      <h1 className="text-sm text-gray-500">
-        Learn more about me
-      </h1>
-      <span className="text-md font-bold">
-        Technologies I've used:
-      </span>
+    <div className="mt-5 mb-2.5 flex h-full w-full min-w-25 max-w-175 flex-1 flex-col  border-b border-[#131316]  p-2.5">
+      <div className='flex flex-col items-center mb-2'>
+        <h1 className="text-sm text-gray-500">
+          Learn more about me
+        </h1>
+        <span className="text-md font-bold">
+          Technologies I've used:
+        </span>
+      </div>
 
       <div className="flex flex-wrap items-center justify-center">
         {skills.map((skill, i) => (
           <div
             key={i}
-            className={`m-2 inline-flex h-20 w-30 items-center justify-center rounded-md border p-1 font-bold ${skill.badgeClassName}`}
+            className={`m-2 inline-flex h-10 w-fit items-center justify-center rounded-md border p-1 font-bold ${skill.badgeClassName}`}
           >
             <img className={skill.iconClassName ?? 'mr-1 h-6 w-6'} src={skill.icon} alt="" />
             {skill.label}

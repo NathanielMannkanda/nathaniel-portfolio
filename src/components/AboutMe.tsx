@@ -23,13 +23,7 @@ const TechBadge = ({
 export const AboutMe = () => (
 
   <div className="mb-2.5 flex h-full w-full max-w-175 sm:min-w-100 flex-1 flex-col items-center border-2 rounded-md p-5 border-[#48E054]">
-    <img
-      className="h-30 w-30 rounded-md border-2 border-[#48E054] "
-      src="/imgs/coffee-cat.png"
-      alt=""
-    />
-
-    <h1 className="mt-4 text-xl font-bold text-[#48E054] md:text-3xl">About Me</h1>
+    <h1 className="mt-4 text-2xl font-bold text-[#48E054] md:text-3xl">About Me</h1>
 
     <div className="text-ml mt-5">
       <span className="w-fit text-gray-100">

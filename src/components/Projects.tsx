@@ -31,6 +31,7 @@ const projects: Project[] = [
       { label: 'React', icon: '/imgs/react-js-icon.png' },
       { label: 'Firebase', icon: '/imgs/firebase-icon.png' },
       { label: 'Tailwind CSS', icon: '/imgs/tailwind-css-icon.png', iconClassName: 'h-5 w-5' },
+      { label: 'GSAP', icon: '/imgs/gsap-icon.jpg' },
     ],
     bullets: [
       'I created a website that allows you to select between being a manager and a worker. Each Role has its own features',
@@ -48,6 +49,7 @@ const projects: Project[] = [
       { label: 'React', icon: '/imgs/react-js-icon.png' },
       { label: 'Tailwind CSS', icon: '/imgs/tailwind-css-icon.png', iconClassName: 'h-5 w-5' },
       { label: 'TypeScript', icon: '/imgs/typescript-icon.png' },
+      { label: 'GSAP', icon: '/imgs/gsap-icon.jpg' },
     ],
     bullets: [
       'I created a interactive E-commerce site that can take an order and store it in the cart as',
@@ -62,16 +64,17 @@ const projects: Project[] = [
     imageClassName: '',
     link: 'https://trill-boutique.vercel.app/',
     tech: [
-      { label: 'PHP', icon: '/imgs/php-icon.png' },
-      { label: 'Laragon', icon: '/imgs/laragon.svg' },
-      { label: 'Wordpress', icon: '/imgs/wordpress-icon.png', iconClassName: 'h-5 w-5' },
+      { label: 'React', icon: '/imgs/react-js-icon.png' },
+      { label: 'Tailwind', icon: '/imgs/tailwind-css-icon.png' },
+      { label: 'TypeScript', icon: '/imgs/typescript-icon.png', iconClassName: 'h-5 w-5' },
+      { label: 'GSAP', icon: '/imgs/gsap-icon.jpg' },
       { label: 'Photopea', icon: '/imgs/photopea.png', iconClassName: 'h-5 w-5' },
+      
     ],
     bullets: [
-      'I used a WordPress to create a Template for a Contact Page',
-      'Fully Coded with PHP to make plugins and populate the website with CSS 3 being used to style',
-      'Used Laragon as a develoment environment along as an aid for MySQL',
-      'fully recreated the Photopea design in wordpress with PHP',
+      'I created a website that acts and an archive for old designer items, models and actors. It was also made to test animations with gsap and Photopea',
+      ' I used Photopea to create the layout for the images i would animate then used gsap to animate them.',
+      'I used TailwindCSS and TypeScript to aid with the UI of the websit, from it playing music to the overall layout.',
     ],
   },
 ]

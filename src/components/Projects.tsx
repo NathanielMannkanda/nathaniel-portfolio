@@ -284,7 +284,7 @@ export const ProjectsPreview = () => (
     </h1>
 
     <p className="mt-3 text-gray-400">
-      Take a look at what I've been building — from full stack apps to WordPress sites.
+      Take a look at what I've been building.
     </p>
 
     <Link

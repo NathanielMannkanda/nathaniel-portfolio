@@ -33,10 +33,10 @@ export const Cards = () => {
     <div className="mb-2.5 flex h-full w-full max-w-175 sm:min-w-100 flex-1 flex-col overflow-x-hidden rounded-md p-2.5">
       <div className="flex flex-row text-xl">
         <p className="font-hanken text-2xl font-bold sm:text-3xl md:text-4xl w-full">
-          <a className="text-wrap text-gray-100 items-center justify-center flex">
+          <a className="text-wrap text-center text-gray-100 items-center justify-center flex">
             Hey! I'm Nathaniel Mankanda a
-          </a> 
-          <a className="flex justify-center">
+          </a>
+          <a className="flex justify-center text-center">
             <span
               ref={textRef}
               onMouseEnter={handleHover}

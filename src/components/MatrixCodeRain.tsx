@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 const color = "#48E054";
 
@@ -21,8 +22,41 @@ type Cluster = {
   radius: number;
 };
 
+// How long the post-navigation burst lasts, in ms.
+const BURST_DURATION = 600;
+
 const MatrixCodeRain: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pixelsRef = useRef<Pixel[]>([]);
+  const burstStartRef = useRef(0);
+  const location = useLocation();
+  const isFirstRenderRef = useRef(true);
+
+  // Give the pixels a little outward pulse whenever the route changes,
+  // so navigating feels connected to the background instead of static.
+  useEffect(() => {
+    if (isFirstRenderRef.current) {
+      isFirstRenderRef.current = false;
+      return;
+    }
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const centerX = canvas.width / 2;
+    const centerY = canvas.height / 2;
+
+    pixelsRef.current.forEach((pixel) => {
+      const dx = pixel.x - centerX;
+      const dy = pixel.y - centerY;
+      const distance = Math.hypot(dx, dy) || 1;
+
+      pixel.vx += (dx / distance) * 0.6;
+      pixel.vy += (dy / distance) * 0.6;
+    });
+
+    burstStartRef.current = performance.now();
+  }, [location.pathname]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -103,6 +137,7 @@ const MatrixCodeRain: React.FC = () => {
       );
 
     let pixels: Pixel[] = Array.from({ length: pixelCount() }, spawnPixel);
+    pixelsRef.current = pixels;
 
     const wrap = (value: number, max: number) => {
       if (value < 0) return max;
@@ -124,6 +159,12 @@ const MatrixCodeRain: React.FC = () => {
         cluster.y = wrap(cluster.y + cluster.vy, canvas.height);
       });
 
+      // Briefly glow brighter and bigger right after a route change, then
+      // settle back down as the burst fades out.
+      const burstElapsed = performance.now() - burstStartRef.current;
+      const burstStrength =
+        burstElapsed < BURST_DURATION ? 1 - burstElapsed / BURST_DURATION : 0;
+
       pixels.forEach((pixel, index) => {
         pixel.life++;
 
@@ -141,8 +182,10 @@ const MatrixCodeRain: React.FC = () => {
         pixel.x = wrap(pixel.x + pixel.vx, canvas.width);
         pixel.y = wrap(pixel.y + pixel.vy, canvas.height);
 
-        context.globalAlpha = envelope * pixel.maxOpacity;
-        context.fillRect(pixel.x, pixel.y, pixel.size, pixel.size);
+        const size = pixel.size * (1 + burstStrength * 0.6);
+
+        context.globalAlpha = envelope * pixel.maxOpacity * (1 + burstStrength);
+        context.fillRect(pixel.x, pixel.y, size, size);
       });
 
       context.globalAlpha = 1;
@@ -154,6 +197,7 @@ const MatrixCodeRain: React.FC = () => {
       resizeCanvas();
       clusters = spawnClusters();
       pixels = Array.from({ length: pixelCount() }, spawnPixel);
+      pixelsRef.current = pixels;
     };
 
     window.addEventListener("resize", handleResize);

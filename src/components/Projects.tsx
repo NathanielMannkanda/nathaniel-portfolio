@@ -153,23 +153,14 @@ const ArrowIcon = ({ direction }: { direction: 'left' | 'right' }) => (
   </svg>
 )
 
-// Horizontal, side-scrolling carousel used on md+ screens. Cards nearer the
-// center of the scroller are fully opaque; cards peeking in from the sides
-// fade out based on distance from center.
+// Horizontal, side-scrolling carousel used on md+ screens.
 const ProjectsCarousel = () => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const [opacities, setOpacities] = useState<number[]>(() => projects.map(() => 1))
-  // Space added before the first card and after the last card so they can be
-  // scrolled all the way to the center of the scroller, same as every other
-  // card. Without this, the scroller runs out of room to scroll and the
-  // first/last cards get stuck off-center.
+  // Space added before the first card and after the last card so they can be centered
   const [sidePadding, setSidePadding] = useState(16)
 
-  // Measured separately from the opacity effect below: this needs to commit
-  // and repaint with the new padding before opacities are recalculated
-  // against it, otherwise the first render's opacities are computed against
-  // the old (too-small) padding.
   useEffect(() => {
     const scroller = scrollerRef.current
     const firstCard = cardRefs.current[0]
@@ -296,8 +287,6 @@ export const ProjectsPreview = () => (
   </div>
 )
 
-// Full projects page. Mobile keeps the original vertical, scroll-down list
-// with no fading. md+ switches to a faded, side-scrolling carousel.
 export const ProjectsPage = () => (
   <div className="mt-5 mb-2.5 flex h-full w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center justify-center p-2.5 md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
     <Link to="/" className="mb-4 self-start text-sm text-gray-400 transition hover:text-[#48E054]">

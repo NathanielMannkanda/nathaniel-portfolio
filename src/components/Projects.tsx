@@ -153,12 +153,10 @@ const ArrowIcon = ({ direction }: { direction: 'left' | 'right' }) => (
   </svg>
 )
 
-// Horizontal, side-scrolling carousel used on md+ screens.
 const ProjectsCarousel = () => {
   const scrollerRef = useRef<HTMLDivElement>(null)
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const [opacities, setOpacities] = useState<number[]>(() => projects.map(() => 1))
-  // Space added before the first card and after the last card so they can be centered
   const [sidePadding, setSidePadding] = useState(16)
 
   useEffect(() => {
@@ -267,7 +265,6 @@ const ProjectsCarousel = () => {
   )
 }
 
-// Small card shown on the home page that links out to the dedicated /projects page.
 export const ProjectsPreview = () => (
   <div className="mt-5 mb-2.5 flex h-full w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center rounded-md p-5 text-center">
     <h1 className="text-xl font-bold text-[#48E054] md:text-3xl">
@@ -286,6 +283,7 @@ export const ProjectsPreview = () => (
     </Link>
   </div>
 )
+
 
 export const ProjectsPage = () => (
   <div className="mt-5 mb-2.5 flex h-full w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center justify-center p-2.5 md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">

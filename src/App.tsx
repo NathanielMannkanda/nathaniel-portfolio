@@ -17,11 +17,11 @@ function App() {
   }
 
   return (
-    <div className="p-3">
+    <div className="flex min-h-screen flex-col p-3">
       <audio ref={meowRef} src="/sounds/cat-meow.mp3"></audio>
       <MatrixCodeRain />
       <Header />
-      <div className="grid place-items-center pt-30 p-2">
+      <div className="grid flex-1 place-items-center pt-30 p-2">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<ProjectsPage />} />

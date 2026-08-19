@@ -33,7 +33,6 @@ const MatrixCodeRain: React.FC = () => {
   const isFirstRenderRef = useRef(true);
 
   // Give the pixels a little outward pulse whenever the route changes,
-  // so navigating feels connected to the background instead of static.
   useEffect(() => {
     if (isFirstRenderRef.current) {
       isFirstRenderRef.current = false;
@@ -81,8 +80,6 @@ const MatrixCodeRain: React.FC = () => {
     const clusterCount = () =>
       Math.max(6, Math.floor((canvas.width * canvas.height) / 170000));
 
-    // Places clusters on a jittered grid so they land in spread-out spots
-    // across the whole page instead of clumping together by pure chance.
     const spawnClusters = (): Cluster[] => {
       const count = clusterCount();
       const cols = Math.max(1, Math.round(Math.sqrt((count * canvas.width) / canvas.height)));
@@ -113,7 +110,6 @@ const MatrixCodeRain: React.FC = () => {
       const speed = 0.05 + Math.random() * 0.2;
       const cluster = clusters[Math.floor(Math.random() * clusters.length)];
 
-      // sum of two uniforms -> triangular distribution, biases pixels toward the cluster center
       const offsetAngle = Math.random() * Math.PI * 2;
       const offsetRadius =
         ((Math.random() + Math.random()) / 2) * cluster.radius;
@@ -146,8 +142,7 @@ const MatrixCodeRain: React.FC = () => {
     };
 
     const draw = () => {
-      // Re-applied every frame: assigning canvas.width/height (on resize)
-      // resets these context properties back to their defaults.
+      // Re-applied every frame: assigning canvas.width/height (on resize)resets these context properties back to their defaults.
       context.fillStyle = color;
       context.shadowColor = color;
       context.shadowBlur = 4;
@@ -159,8 +154,6 @@ const MatrixCodeRain: React.FC = () => {
         cluster.y = wrap(cluster.y + cluster.vy, canvas.height);
       });
 
-      // Briefly glow brighter and bigger right after a route change, then
-      // settle back down as the burst fades out.
       const burstElapsed = performance.now() - burstStartRef.current;
       const burstStrength =
         burstElapsed < BURST_DURATION ? 1 - burstElapsed / BURST_DURATION : 0;

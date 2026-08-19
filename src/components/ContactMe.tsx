@@ -12,23 +12,18 @@ const socials: Social[] = [
   { label: 'Email', href: 'mailto:nathanielmankanda8@gmail.com', icon: '/imgs/email.png' },
 ]
 
-// Tailwind classes for the little tooltip label that pops up above each icon on hover.
-// Split into a few named pieces so it's easier to find the bit you want to tweak.
 const tooltipPositionClasses =
   'pointer-events-none absolute bottom-[125%] left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-[#111] px-2 py-1 text-xs text-white'
 
-// Hidden by default; fades in + slides up on hover (triggered by `group` on the parent div).
+
 const tooltipHoverClasses =
   'opacity-0 transition-[opacity,transform] duration-200 group-hover:-translate-y-1 group-hover:opacity-100'
 
-// Little triangle "pointer" under the tooltip, drawn using a bordered pseudo-element.
 const tooltipArrowClasses =
   "after:absolute after:left-1/2 after:top-full after:-translate-x-1/2 after:border-[5px] after:border-solid after:content-[''] after:border-t-[#111] after:border-x-transparent after:border-b-transparent"
 
 const tooltipClasses = [tooltipPositionClasses, tooltipHoverClasses, tooltipArrowClasses].join(' ')
 
-// A single icon + link + hover tooltip. `group` on the wrapper is what lets the
-// tooltip react when you hover anywhere inside it (see all the `group-hover:` classes).
 const SocialLink = ({ social }: { social: Social }) => (
   <div className="group relative mr-2">
     <a href={social.href} target="_blank" rel="noreferrer">

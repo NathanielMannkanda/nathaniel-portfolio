@@ -5,13 +5,13 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin"
 gsap.registerPlugin(ScrambleTextPlugin)
 
 
-const glitchChars = "!<>-_\\/[]{}—=+*^?#"
+const glitchChars = "Front End Developer"
 
 
 
 export const Cards = () => {
   const textRef = useRef<HTMLSpanElement>(null)
-  const role = "Front End Developer"
+  const role = "!<>-_\\/[]{}—=+*^?#"
 
   const handleHover = () => {
     if (!textRef.current) return
@@ -21,7 +21,20 @@ export const Cards = () => {
       duration: 0.8,
       ease: "none",
       scrambleText: {
-        text: role,
+        text: glitchChars,
+        chars: role,
+        speed: 0.4,
+        revealDelay: 0.1,
+      },
+    })
+  }
+
+  const handleLeave = () => {
+    gsap.to(textRef.current, {
+      duration: 0.8,
+      ease: "none",
+      scrambleText: {
+        text:  role,
         chars: glitchChars,
         speed: 0.4,
         revealDelay: 0.1,
@@ -41,6 +54,7 @@ export const Cards = () => {
               ref={textRef}
               onMouseEnter={handleHover}
               onClick={handleHover}
+              onMouseLeave={handleLeave}
               className="inline-block text-wrap sm:text-nowrap text-[#48E054]"
             >
               {role}

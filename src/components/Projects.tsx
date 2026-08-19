@@ -284,8 +284,7 @@ export const ProjectsPreview = () => (
   </div>
 )
 
-// Full projects page. Mobile keeps the original vertical, scroll-down list
-// with no fading. md+ switches to a faded, side-scrolling carousel.
+
 export const ProjectsPage = () => (
   <div className="mt-5 mb-2.5 flex h-full w-full sm:min-w-100 max-w-175 flex-1 flex-col items-center justify-center p-2.5 md:max-w-4xl lg:max-w-5xl xl:max-w-6xl">
     <Link to="/" className="mb-4 self-start text-sm text-gray-400 transition hover:text-[#48E054]">

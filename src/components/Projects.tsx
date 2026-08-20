@@ -26,11 +26,12 @@ const projects: Project[] = [
     date: 'April 2026',
     image: workTrackerThumbnail,
     imageClassName: 'bg-white',
-    link: 'https://work-tracker-five-beta.vercel.app/',
+    link: 'https://worktracker-six-phi.vercel.app/',
     tech: [
       { label: 'React', icon: '/imgs/react-js-icon.png' },
       { label: 'Firebase', icon: '/imgs/firebase-icon.png' },
       { label: 'Tailwind CSS', icon: '/imgs/tailwind-css-icon.png', iconClassName: 'h-5 w-5' },
+      { label: 'TypeScript', icon: '/imgs/typescript-icon.png' },
       { label: 'GSAP', icon: '/imgs/gsap-icon.jpg' },
     ],
     bullets: [

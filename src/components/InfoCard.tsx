@@ -10,6 +10,7 @@ import firebaseIcon from '../assets/icons/firebase-icon.png'
 import mongodbIcon from '../assets/icons/mongodb-icon.png'
 import htmlIcon from '../assets/icons/html-icon.png'
 import cssIcon from '../assets/icons/css-icon.png'
+import postgresIcon from '../assets/icons/postegresql.png'
 
 type Skill = {
   label: ReactNode
@@ -37,6 +38,7 @@ const skills: Skill[] = [
   },
   { label: 'MongoDB', icon: mongodbIcon, badgeClassName },
   { label: 'Firebase', icon: firebaseIcon, badgeClassName },
+  { label: 'PostgreSQL', icon: postgresIcon, badgeClassName}
 ]
 
 export const InfoCard = () => {
